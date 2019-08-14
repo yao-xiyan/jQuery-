@@ -2,11 +2,13 @@
 
 
 
-##  jQuery初识
+## jQuery初识
 
 
 
-	### 什么是jQuery
+```
+什么是jQuery
+```
 
 - jQuery 就是-JavaScript类库  就是一个或者多个.js文件
 - **具有链式结构**
@@ -25,14 +27,10 @@
 
 ```javascript
 
+1、$(function(){});
 
-$(function(){});
+2、$(document).ready(function(){});
 
-$(document).ready(function(){});
-
-jQuery(function(){});
-
-jQuery(document).ready(function(){});
 ```
 
 ### jQuery对象和DOM对象
@@ -41,22 +39,20 @@ jQuery(document).ready(function(){});
 
 - jQery 对象只能用jQuery 对象方法
 - JS  DOM对象只能用DOM的属性和方法
-
 - DOM对象  ==>  jq对象
   - $('div') [index]       index 是索引号 
 
-
-  ```js
+```js
   var btn = documenti.querySelector('inpute');
   $(btn).css('background','yellow');
-  ```
+```
+
 - $('div') .get(index)    index 是索引号 
 
 ```js
 var btn = documenti.querySelector('inpute');
 $(btn).get(index).css('background','yellow');
 ```
-
 
 - jq对象  ==>  DOM对象
   - $(DOM对象)
@@ -127,7 +123,7 @@ $('li:even')==》索引为偶数
 >
 > $('li'),nextAll();后面的
 >
-> $('li').prevAll();前面的
+> $('li').prevAll();前面的4
 >
 > 判断是否具有某个类名：$('div').hasClass('aaa')
 >
@@ -159,28 +155,13 @@ fadeOut([speed,[easing],[fn]])【淡出】
 fadeToggle([speed,[easing],[fn]])【切换】
 fadeTo([[speed],opacity,[easing],[fn]])【到达某个位置】
 
-（1）参数都可以省略。
-（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。
-（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。
-（4）fn:  回调函数，在动画完成时执行的函数，每个元素执行一次。
-
 注意：fadeTo([[speed],opacity,[easing],[fn]])
-
-（1）opacity 透明度必须写，取值 0~1 之间。
-（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。必须写
-（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。
-（4）fn:  回调函数，在动画完成时执行的函数，每个元素执行一次。
 
 ### 滑动效果
 
 slideDown([speed,[easing],[fn]])【下滑效果】
 slideUp([speed,[easing],[fn]])【上滑效果】
 slideToggle([speed,[easing],[fn]])【切换效果】
-
-（1）参数都可以省略。
-（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。
-（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。
-（4）fn:  回调函数，在动画完成时执行的函数，每个元素执行一次
 
 ### 事件切换
 
@@ -217,6 +198,7 @@ $(this).children('ul').slideDown();
 });
 
 
+
 ```
 
 ### **自定义动画** **animate**
@@ -241,6 +223,7 @@ $(this).children('ul').slideDown();
 (1）stop() 方法用于停止动画或效果。
 (2)  注意： stop() 写到动画或者效果的前面， 相当于停止结束上一次的动画
 	
+
 ```
 
 ## **jQuery** **属性操作**
@@ -252,7 +235,7 @@ $(this).children('ul').slideDown();
 
 ### 元素自定义属性值**attr()**
 
-用户自己给元素添加的属性，我们称为自定义属性。比如给 div 添加 index=“1”。 
+标签用户自己给元素添加的属性，我们称为自定义属性。比如给 div 添加 index=“1”。 
 
 **获取属性语法**
 
@@ -276,7 +259,7 @@ data(''name'',''value'')   // 向被选元素附加数据
 
 date(''name'')             //   向被选元素获取数据   
 
-### jQuery **内容文本值**
+### jQuery **内容文本值**val()
 
 **普通元素内容** **html()**（相当于原生inner HTML)
 
@@ -300,7 +283,7 @@ date(''name'')             //   向被选元素获取数据
 
 主要是遍历、创建、添加、删除元素操作。
 
-### **遍历元素**
+### **遍历元素**each()
 
 jQuery 隐式迭代是对同一类元素做了同样的操作。如果想要给同一类元素做不同操作，就需要用到遍历。
 
@@ -312,6 +295,7 @@ jQuery 隐式迭代是对同一类元素做了同样的操作。如果想要给�
 2. 里面的回调函数有2个参数：  index 是每个元素的索引号;  demEle 是每个DOM元素对象，不是jquery对象
 
 3. 所以要想使用jquery方法，需要给这个dom元素转换为jquery对象  $(domEle)
+
 ```
 
 语法2：$.each(object，function(index, element){ xxx;}）
@@ -320,6 +304,7 @@ jQuery 隐式迭代是对同一类元素做了同样的操作。如果想要给�
 1. $.each()方法可用于遍历任何对象。主要用于数据处理，比如数组，对象
 
 2. 里面的函数有2个参数：  index 是每个元素的索引号;  element  遍历内容
+
 ```
 
 ### 创建元素
@@ -327,6 +312,8 @@ jQuery 隐式迭代是对同一类元素做了同样的操作。如果想要给�
 语法：$(''<li></li>'');    
 
 ### **添加元素**
+
+> 其他操作：$('<div>内容</div>').appendTo(ul)；添加到哪
 
 element.append(''内容'') [把内容放入匹配元素内部最后面，类似原生 appendChild。]
 
@@ -353,3 +340,199 @@ element.html('''')   //  清空匹配的元素内容
 ①remove 删除元素本身。
 
 ②empt() 和  html('''') 作用等价，都可以删除元素里面的内容，只不过 html 还可以设置内容。
+
+## jQuery 尺寸、位置操作
+
+### 尺寸
+
+> width()、height()【只算width和height】
+>
+> innerWidth()、innerHeight()【包含padding+width】
+>
+> outerWidth()、outerHeight()【包含padding、border、width】
+>
+> outerWidth(true)、outerHeight(true)【包含padding、border、margin、width】
+
+```
+以上参数为空，则是获取相应值，返回的是数字型。
+如果参数为数字，则是修改相应值。
+参数可以不必写单位。
+
+```
+
+
+
+### 位置
+
+位置主要有三个： offset()、position()、scrollTop()/scrollLeft();
+
+#### offset 
+
+**offset()设置或获取元素偏移**
+
+> offset：距离文档的距离【left，top】
+
+```
+①offset() 方法设置或返回被选元素相对于**文档**的偏移坐标，跟父级没有关系。
+
+②该方法有2个属性 left、top 。offset().top  用于获取距离文档顶部的距离，offset().left 用于获取距离文档左侧的距离。
+
+③可以设置元素的偏移：offset({ top: 10, left: 30 });
+
+```
+
+#### position
+
+**position() 获取元素偏移**
+
+①position() 方法用于返回被选元素相对于**带有定位的父级**偏移坐标，如果父级都没有定位，则以文档为准。
+
+②该方法有2个属性 left、top。position().top 用于获取距离定位父级顶部的距离，position().left 用于获取距离定位父级左侧的距离。
+
+注意：该方法只能获取。
+
+只读
+
+#### scroll 滚动事件
+
+**scrollTop()、scrollLeft()设置**或获取元素被卷去的头部和**左侧**
+
+①scrollTop() 方法设置或返回被选元素被卷去的头部。
+
+②不跟参数是获取，参数为不带单位的数字则是设置被卷去的头部。
+
+scroll事件
+
+#### 综合
+
+课程回顾：
+
+​	属性：prop 固有属性，attr   自定义属性  
+
+​	事件：change事件元素发生改变	
+
+​	文本内容值：html，text，val
+
+​	元素操作：
+
+​		遍历：$(元素).each(function () {i,elm})
+
+​			$.each(对象,function (i,elm) {}) ;
+
+​		remove;append,prepend
+
+​		位置：offset，scrollTop
+
+​	元素尺寸：width,height  【只算width和height】
+
+​			innerWidth,innerHeight【包含padding+width】
+
+​			outerWidth, outerHeight【包含padding、border、width】
+
+## jQ事件
+
+### 注册事件
+
+- 语法：element.事件(function(){})
+
+> - on() 方法在匹配元素上绑定一个或多个事件的事件处理函数
+
+> - 语法：element.on(events,[selector],fn)
+
+### on()方法优势
+
+- 1、可以绑定多个事件，多个处理事件处理程序。 
+
+   $(“div”).on({
+
+    mouseover: function(){}, 
+
+    mouseout: function(){},
+
+    click: function(){}  
+
+  });    
+
+- 2、可以事件委派操作。事件委派的定义就是，把原来加给子元素身上的事件绑定在父元素身上，就是把事件委派给父元素。
+
+  $('ul').on('click', 'li', function() {
+
+  ```
+  alert('hello world!');
+  
+  ```
+
+  });   
+
+- 3、动态创建的元素，click()没有办法绑定事件，on() 可以给动态生成的元素绑定事件
+
+   $(“div").on("click",”p”, function(){
+
+  ```
+   alert("俺可以给动态生成的元素绑定事件")
+  
+  ```
+
+   });   
+
+### 解绑事件 off()
+
+> off() 方法可以移除通过 on() 方法添加的事件处理程序。
+
+```
+    $("p").off() // 解绑p元素所有事件处理程序
+
+    $("p").off( "click")  // 解绑p元素上面的点击事件 后面的 foo 是侦听函数名
+
+    $("ul").off("click", "li");   // 解绑事件委托
+
+```
+
+> 如果有的事件只想触发一次， 可以使用 **one()**来绑定事件。
+
+解绑：$（元素）.off();
+
+### 自动触发事件trigger()
+
+有些事件希望自动触发, 比如轮播图自动播放功能跟点击右侧按钮一致。可以利用定时器自动触发右侧按钮点击事件，不必鼠标点击触发
+
+**语法**
+
+> element.click()  // 第一种简写形式
+
+> element.trigger("type")//第二种自动触发模式
+
+```
+$("p").on("click", function () {
+
+  alert("hi~");
+
+}); 
+
+$('p').click();
+
+$("p").trigger("click"); // 此时自动触发点击事件，不需要鼠标点击
+
+$('div').triggerHandler('click');// 自动触发事件【这种触发事件不会触发默认行为】
+
+```
+
+
+
+看似两个非常相似，但是表同里不同！
+
+下面就是他们之间的三大区别：
+
+- 第一：trigger会导致浏览器同名的默认行为的执行，如：trigger('submit');不但会执行submit()函数的效果，也会执行表单提交的效果；
+
+　　　而triggerHandler就不会导致默认行为的执行
+
+- 第二：triggerHandler只会触发JQ对象集合中第一个元素的事件处理函数，也不会产生事件冒泡。而trigger不同
+
+- 第三：这个方法的返回时事件处理函数的返回值，而不是具有可链性的JQ对象，此外，如果最开始的JQ对象集合为空，则返回undefined.
+
+### 阻止冒泡
+
+阻止默认行为：event.preventDefault()   或者 return  false 
+
+阻止冒泡： event.stopPropagation()
